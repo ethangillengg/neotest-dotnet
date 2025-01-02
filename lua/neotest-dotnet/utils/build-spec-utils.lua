@@ -34,10 +34,12 @@ function BuildSpecUtils.create_single_spec(position, proj_root, filter_arg, dotn
     "test",
     proj_root,
     filter_arg,
+    "--",
     "--results-directory",
     vim.fn.fnamemodify(results_path, ":h"),
-    "--logger",
-    '"trx;logfilename=' .. vim.fn.fnamemodify(results_path, ":t:h") .. '"',
+    "--report-xunit-trx",
+    "--report-xunit-trx-filename",
+    vim.fn.fnamemodify(results_path, ":t:h"),
   }
 
   if dotnet_additional_args then
